@@ -38,47 +38,13 @@ print(diccionario_mejclado)
 ```
 
 
-3.
+# 3. Cree un programa que lea de un archivo con dicho JSON y Imprima los nombres completos (nombre y apellidos) de las personas que practican el deporte ingresado por el usuario Imprima los nombres completos (nombre y apellidos) de las personas que esten en un rango de edades dado por el usuario.
 
 ```
-import json
 
-def leer_json(archivo):
-    with open(archivo, 'r') as file:
-        data = json.load(file)
-    return data
-
-def imprimir_nombres_deporte(data, deporte):
-    for usuario, info in data.items():
-        if deporte in info['deportes']:
-            nombres = info['nombres']
-            apellidos = info['apellidos']
-            nombre_completo = f"{nombres} {apellidos}"
-            print(nombre_completo)
-
-def imprimir_nombres_rango_edades(data, edad_min, edad_max):
-    for usuario, info in data.items():
-        edad = info['edad']
-        if edad_min <= edad <= edad_max:
-            nombres = info['nombres']
-            apellidos = info['apellidos']
-            nombre_completo = f"{nombres} {apellidos}"
-            print(nombre_completo)
-
-archivo_json = 'datos.json'
-data = leer_json(archivo_json)
-
-deporte_ingresado = input("Ingrese el deporte: ")
-print("Nombres de personas que practican", deporte_ingresado)
-imprimir_nombres_deporte(data, deporte_ingresado)
-
-edad_minima = int(input("Ingrese la edad mínima: "))
-edad_maxima = int(input("Ingrese la edad máxima: "))
-print("Nombres de personas en el rango de edades", edad_minima, "-", edad_maxima)
-imprimir_nombres_rango_edades(data, edad_minima, edad_maxima)
 ```
 
-# 4. 
+# 4. Revise los campos: 'alertAlertas', 'alertPrecip', 'alertTmpMax', 'alertTmpMin', 'alertVelViento'. Para cada uno identifique si se presentan alertas ({0: x} indica que el día 0 habra un fenomeno de la alerta en cuestión, {1:"-"} indica que no habrá ningun fenomeno climatico). En caso que se presente una alerta obtenga la fecha del campo 'dt' (aquí pueden revisar como se convierte de UTC a fecha), así como los parametros relevantes del evento (e.g. si es un fenomeno de lluvias, busqye el nivel de lluvia, si es vientos, la velocidad del viuento). Al final deberá imprimir las fechas de alerta, el tipo de alerta y las variables asociadas.
 
 ```
 import json
